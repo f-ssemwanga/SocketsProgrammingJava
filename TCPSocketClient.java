@@ -23,10 +23,11 @@ public class TCPSocketClient {
             String userInput = br.readLine(); // take user input
             dout.writeUTF(userInput); //write user input into the stream object
             if (userInput.equalsIgnoreCase("exit")){
+                //close the socket
+                sk.close();
                 break;
             }
-            //close the socket
-            sk.close();
+
         }
     }
 }

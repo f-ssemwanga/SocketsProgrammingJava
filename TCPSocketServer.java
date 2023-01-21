@@ -23,10 +23,11 @@ public class TCPSocketServer {
             String dataIn = din.readUTF();
             System.out.println("client: "+dataIn);
             if (dataIn.equalsIgnoreCase("exit")){
+                //close the socket
+                sk.close();
                 break;
             }
-            //close the socket
-            sk.close();
+
         }
     }
 
