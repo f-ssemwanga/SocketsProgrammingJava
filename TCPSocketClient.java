@@ -14,14 +14,19 @@ public class TCPSocketClient {
 
         //create a data output stream converts raw data from client to server into streams
         //pass the socket object to send the data
-        //buffer reader takes input from the the user
+        //buffer reader takes input from the  user
         DataOutputStream dout = new DataOutputStream(sk.getOutputStream());
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         while(true){
             //while loop will allow data to be sent continuously between client and server
             String userInput = br.readLine(); // take user input
-            dout.writeUTF(userInput); //write userinput into the stream object
+            dout.writeUTF(userInput); //write user input into the stream object
+            if (userInput.equalsIgnoreCase("exit")){
+                break;
+            }
+            //close the socket
+            sk.close();
         }
     }
 }
